@@ -1,0 +1,128 @@
+
+Import pandas as pd
+import numpy as np
+
+id_number = ['128', '478', '257', '299', '175', '328', '099', '457', '144', '222']
+name = ['Patrick', 'Amanda', 'Antonella', 'Eduard', 'John', 'Alejandra', 'Layton', 'Melanie', 'David', 'Lewis']
+surname = ['Miller', 'Torres', 'Brown', 'Iglesias', 'Wright', 'Campos', 'Platt', 'Cavill', 'Lange', 'Bellow']
+division = ['Sales', 'IT', 'IT', 'Sales', 'Marketing', 'Engineering', 'Engineering', 'Sales', 'Engineering', 'Sales']
+salary = [30000, 54000, 80000, 79000, 15000, 18000, 30000, 35000, 45000, 30500]
+telephone = ['7366578', '7366444', '7366120', '7366574', '7366113', '7366117', '7366777', '7366579', '7366441', '7366440']
+type_contract = ['permanent', 'temporary', 'temporary', 'permanent', 'internship', 'internship', 'permanent', 'temporary', 'permanent', 'permanent']
+
+df_employees = pd.DataFrame({'name': name, 'surname': surname, 'division': division,
+	                             'salary': salary, 'telephone': telephone, 'type_contract': type_contract}, index=id_number)
+
+
+print(df_employees)
+
+salary = df_employees.salary
+
+salary_2 = df_employees['salary']
+
+print(type(salary))
+
+print(type(salary_2))
+
+
+2. Selecting multiple columns by label
+
+print(df_employees[['division', 'salary']])
+
+numeric_inputs = df_employees.select_dtypes(include=np.number)
+
+numeric_inputs_2 = df_employees.select_dtypes(include='number')
+
+print(numeric_inputs_2.columns)
+
+print(type(numeric_inputs_2))
+
+print(numeric_inputs)
+
+print(df_employees.info())
+
+c
+
+
+#3. Selecting a single row by label
+
+
+df_employees.loc['478']
+
+
+
+
+#4. Selecting multiple rows by label
+
+→ df.loc[list_of_strings]
+
+→ df.loc[slice_of_strings]
+
+
+
+5. Selecting a single row by position
+
+→ df.iloc[integer]
+
+
+
+6. Selecting multiple rows by position
+
+→ df.iloc[list_of_integers]
+
+→ df.iloc[slice_of_integers]
+
+
+
+7. Selecting rows and columns simultaneously
+
+→ df.loc[row_labels, column_labels]
+
+→ df.iloc[row_positions, column_positions]
+
+
+8.Selecting a scalar value by label and position
+
+→ df.at[string, string]
+
+→ df.iat[integer, integer]
+
+
+9.Selecting rows using Boolean selection
+
+→ df[sequence_of_booleans]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

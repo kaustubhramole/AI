@@ -1,0 +1,29 @@
+
+import pandas as pd
+df = pd.read_csv("team.csv")
+df
+
+
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+dfle = df
+dfle.TEAM = le.fit_transform(dfle.TEAM)
+dfle
+
+
+from sklearn.preprocessing import OneHotEncoder
+import numpy as np 
+import pandas as pd
+# creating one hot encoder object
+enc = OneHotEncoder()
+enc_df = pd.DataFrame(enc.fit_transform(dfle[['TEAM']]).toarray())
+enc_df
+
+
+abc = dfle.join(enc_df)
+abc
+
+
+final = abc.drop(['TEAM'], axis='columns')
+final
+

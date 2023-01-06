@@ -1,0 +1,45 @@
+import pandas as pd
+
+import numpy as np
+
+df=pd.DataFrame({
+    "Date": pd.date_range(start="2021-10-01",periods=10,freq="D"),
+    "Item":1014,
+    "Measure_1":np.random.randint(1,10,size=10),
+    "Measure_2":np.random.random(10).round(2),
+    "Measure_3":np.random.random(10).round(2),
+    "Measure_4":np.random.random(10)
+})
+
+
+df
+
+df.loc[[2,9],"Item"]=np.nan
+df.loc[[2,7,9],"Measure_1"]=np.nan
+df.loc[[2,3],"Measure_2"]=np.nan
+df.loc[[2],"Measure_3"]=np.nan
+df.loc[:6,"Measure_4"]=np.nan
+
+
+df
+
+df=df.astype({
+    "Item":pd.Int64Dtype(),
+    "Measure_1":pd.Int64Dtype()
+})
+
+
+df
+
+df.dropna()
+
+df.dropna(axis=1)
+
+df.dropna(how='all')
+
+df.dropna(thresh=4)
+
+df.dropna(subset=["Measure_2","Measure_3"])
+
+values={"Item":1014,"Measure_1":0}
+df.fillna(value=values)

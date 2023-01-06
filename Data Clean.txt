@@ -1,0 +1,59 @@
+1. Importing Libraries
+
+	import pandas as pd
+	import numpy as np
+
+2. Input Customer Feedback Dataset
+
+
+	data = pd.read_csv('feedback.csv')
+	print(data)
+
+3. Locate Missing Data
+
+	print(data.isnull())
+
+4.	print(data.isnull().sum())
+
+5.Drop the data :-
+
+	remove = ['Review ID','Date']
+	print(data.drop(remove, inplace =True, axis =1))
+
+6.Input missing data :-
+
+	print(data['Review'] = data['Review'].fillna('No review'))
+
+7.Check for Duplicates :-
+
+	print(data.duplicated())
+
+8.To drop duplicate value :
+
+	print(data.drop_duplicates())
+
+9.Detect Outliers :-
+
+	Print(data['Rating'].describe())
+
+10.Input
+
+	Print(data.loc[10,'Rating'] = 1)
+
+11.Normalize Casinga:
+
+	Normalize Casinga:
+
+12.Input
+
+	print(data['Customer Name'] = data['Customer Name'].str.title())
+
+
+
+	
+
+	
+	
+	
+
+	
